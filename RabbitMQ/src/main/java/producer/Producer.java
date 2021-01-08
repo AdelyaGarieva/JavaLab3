@@ -50,7 +50,6 @@ public class Producer {
             String infoJson = objectMapper.writeValueAsString(info);
 
             channel.basicPublish(EXCHANGE_NAME, "", null, infoJson.getBytes());
-
             connection.close();
         } catch (IOException | TimeoutException e) {
             throw new IllegalArgumentException(e);

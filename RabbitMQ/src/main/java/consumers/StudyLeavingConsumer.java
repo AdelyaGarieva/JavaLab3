@@ -50,7 +50,8 @@ public class StudyLeavingConsumer {
                 }
             };
 
-            channel.basicConsume(queue, false, deliverCallback, consumerTag -> {});
+            channel.basicConsume(queue, false, deliverCallback, consumerTag -> {
+            });
         } catch (IOException | TimeoutException e) {
             throw new IllegalArgumentException(e);
         }

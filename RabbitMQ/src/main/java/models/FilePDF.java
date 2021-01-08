@@ -34,7 +34,7 @@ public class FilePDF {
         return "C:/temp/" + name + "_" + title + "_" + UUID.randomUUID().toString() + ".pdf";
     }
 
-    private static void addTitlePage(Document document, String title, UserInfo userInfo) throws DocumentException {
+    private static void addTitlePage(Document document, String title, UserInfo userInfo) {
         Paragraph preface = new Paragraph();
         addEmptyLine(preface, 1);
 
@@ -56,7 +56,11 @@ public class FilePDF {
         preface.add(new Paragraph("Date of issue: " + userInfo.getIssueDate(), smallBold));
         addEmptyLine(preface, 1);
 
-        document.add(preface);
+        try {
+            document.add(preface);
+        } catch (DocumentException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     private static void addEmptyLine(Paragraph paragraph, int number) {
