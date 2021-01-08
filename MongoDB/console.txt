@@ -1,0 +1,46 @@
+use shop
+
+db.user.insertOne({
+    firstName: 'Adelya',
+    lastName: 'Garieva',
+    login: 'delya',
+    password: 'delya'
+});
+
+db.user.insertOne({
+    firstName: 'Askar',
+    lastName: 'Gariev',
+    login: 'askar',
+    password: 'askar',
+    age: 21
+});
+
+db.userRole.insertOne({
+    name: 'admin',
+});
+
+db.userRole.insertOne({
+    name: 'customer',
+});
+
+db.user.find({login: 'delya'});
+
+db.user.find({$or: [{age:{$lt:30}}, {login: 'delya'}]});
+
+db.user.find({age: {$exists: true}});
+
+db.user.find({age: {$exists: true}}, {firstName: 1, _id: 0});
+
+db.user.find({login: {$exists: true}}, {firstName: 1, _id: 0})
+    .sort({firstName: -1});
+
+db.user.updateOne({firstName: 'Adelya'}, {$set: {height: 165}});
+
+db.user.updateOne({firstName: 'Askar'}, {$inc: {age: 2}});
+
+db.user.updateOne({_id: ObjectId('5ff8ba431213f6145a22a543')}, {
+    $set: {
+        role: ObjectId('5ff8ba741213f6145a22a547')
+    }
+});
+
