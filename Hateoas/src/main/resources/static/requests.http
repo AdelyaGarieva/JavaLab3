@@ -1,0 +1,11 @@
+PUT http://localhost:80/orders/1/delivered
+Content-Type: application/json
+
+###
+
+PUT http://localhost:80/orders/1/received
+Content-Type: application/json
+
+###
+
+

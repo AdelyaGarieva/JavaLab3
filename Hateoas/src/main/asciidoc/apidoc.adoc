@@ -1,0 +1,44 @@
+= Описание API по товарам
+
+== Методы
+
+|===
+|Метод | Назначение
+|`PUT`
+|Обновить сущность или ее состояние
+|===
+
+=== Смена статуса заказа
+
+=== Доставлен
+
+Смена с NOT_DELIVERED на DELIVERED
+
+.request
+
+include::{snippets}\delivered_order\http-request.adoc[]
+
+.response
+
+include::{snippets}\product_addToCart\http-response.adoc[]
+
+.response-fields
+
+include::{snippets}\product_addToCart\response-fields.adoc[]
+
+=== Получен
+
+Смена с DELIVERED на RECEIVED
+
+.request
+
+include::{snippets}\received_order\http-request.adoc[]
+
+.response
+
+include::{snippets}\received_addToCart\http-response.adoc[]
+
+.response-fields
+
+include::{snippets}\received_addToCart\response-fields.adoc[]
+
